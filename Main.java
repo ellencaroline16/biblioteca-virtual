@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-/**  Ellen Caroline Santos Silva - Análise e Desenvolvimento de Sistemas 
+/*  Ellen Caroline Santos Silva - Análise e Desenvolvimento de Sistemas 
  
  *   - Formativa 2: Biblioteca com LinkedList
  *   - Formativa 3: Fila de espera (Queue) e Histórico de navegação (Stack)
@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // --- livros q eu gosto  ---//
+        // --- livros q eu gosto  ---
         Livro l1  = new Livro("Harry Potter e a Pedra Filosofal", "J.K. Rowling", 1997);
         Livro l2  = new Livro("Harry Potter e a Camara Secreta", "J.K. Rowling", 1998);
         Livro l3  = new Livro("Harry Potter e o Prisioneiro de Azkaban", "J.K. Rowling", 1999);
@@ -45,7 +45,7 @@ public class Main {
         System.out.println(encontrado);
 
         System.out.println("\nRemovendo livro:");
-        biblioteca.removerLivro("A Culpa e das Estrelas");
+        biblioteca.removerLivro("A Culpa é das Estrelas");
 
         // Queue //
     
@@ -62,7 +62,7 @@ public class Main {
         filaEspera.notificarProximo("Os Sete Maridos de Evelyn Hugo");
         filaEspera.exibirFila("Os Sete Maridos de Evelyn Hugo");
 
-        // Stack //
+        // Stack 
        
         HistoricoNavegacao historico = new HistoricoNavegacao("Barbara");
         historico.registrarVisualizacao(l1);
@@ -76,7 +76,7 @@ public class Main {
         historico.voltarUltimo();
         historico.exibirHistorico();
 
-        // HashMap //
+        // HashMap 
         GrafoRecomendacoes grafo = new GrafoRecomendacoes();
 
         grafo.adicionarLivro(l1);
@@ -91,7 +91,7 @@ public class Main {
         grafo.adicionarLivro(l10);
   
 
-        // mesmo autor//
+        // mesmo autor
         grafo.adicionarRelacao(l1, l2);
         grafo.adicionarRelacao(l1, l3);
         grafo.adicionarRelacao(l2, l3);
@@ -100,7 +100,7 @@ public class Main {
         grafo.adicionarRelacao(l9, l10);
       
 
-        // tema/estilo parecido//
+        // tema/estilo parecido
         grafo.adicionarRelacao(l6, l4);
         grafo.adicionarRelacao(l6, l8);
         grafo.adicionarRelacao(l9, l4);

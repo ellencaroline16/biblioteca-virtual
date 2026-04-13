@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 
-/**formativa 02 */
+// formativa 02
 
 public class Biblioteca {
 
@@ -10,26 +10,23 @@ public class Biblioteca {
         this.acervo = new LinkedList<>();
     }
 
-   
     public void adicionarLivro(Livro livro) {
         acervo.add(livro);
-        System.out.println("✔ Livro adicionado ao acervo com sucesso: " + livro);
+        System.out.println("Livro adicionado: " + livro);
     }
 
-   
     public boolean removerLivro(String titulo) {
         for (Livro l : acervo) {
             if (l.getTitulo().equalsIgnoreCase(titulo)) {
                 acervo.remove(l);
-                System.out.println("✔ Livro removido com sucesso: " + l);
+                System.out.println("Livro removido: " + l);
                 return true;
             }
         }
-        System.out.println("✘ Livro não encontrado, tente novamente: " + titulo);
+        System.out.println("Livro nao encontrado: " + titulo);
         return false;
     }
 
-   
     public Livro buscarLivro(String titulo) {
         for (Livro l : acervo) {
             if (l.getTitulo().equalsIgnoreCase(titulo)) {
@@ -41,15 +38,14 @@ public class Biblioteca {
 
     public void listarAcervo() {
         if (acervo.isEmpty()) {
-            System.out.println("Não há livros no acervo!");
+            System.out.println("Nenhum livro no acervo.");
             return;
         }
-        System.out.println("\n===== ACERVO DA BIBLIOTECA =====");
+        System.out.println("\nLista de livros:");
         int i = 1;
         for (Livro l : acervo) {
             System.out.println(i++ + ". " + l);
         }
-        System.out.println("================================");
     }
 
     public LinkedList<Livro> getAcervo() {

@@ -106,4 +106,43 @@ public class GrafoRecomendacoes {
         }
         return total / 2;
     }
+
+    // dijkstra: calcula a distancia de um livro origem para todos os outros
+    public static Map<Livro, Integer> djikstraSimples(HashMap<Livro, Set<Livro>> grafo, Livro origem) {
+        Map<Livro, Integer> distancias = new HashMap<>();
+        Queue<Livro> fila = new LinkedList<>();
+
+        distancias.put(origem, 0);
+        fila.add(origem);
+
+        while (!fila.isEmpty()) {
+            Livro atual = fila.poll();
+            int distanciaAtual = distancias.get(atual);
+
+            for (Livro vizinho : grafo.getOrDefault(atual, new HashSet<>())) {
+                if (!distancias.containsKey(vizinho)) {
+                    distancias.put(vizinho, distanciaAtual + 1);
+                    fila.add(vizinho);
+                }
+            }
+        }
+        return distancias;
+    }
+
+    // exibe os livros ordenados do mais proximo ao mais distante
+    public void exibirDistancias(Livro origem) {
+        System.out.println("\n-- Distancias a partir de: " + origem.getTitulo() + " --");
+
+        Map<Livro, Integer> distancias = djikstraSimples(grafo, origem);
+
+        distancias.entrySet()
+            .stream()
+            .filter(e -> !e.getKey().equals(origem))
+            .sorted(Map.Entry.comparingByValue())
+            .forEach(e -> System.out.println("  distancia " + e.getValue() + ": " + e.getKey()));
+    }
+
+    public HashMap<Livro, Set<Livro>> getGrafo() {
+        return grafo;
+    }
 }
